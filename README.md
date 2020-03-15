@@ -1,7 +1,7 @@
 # The Virtual Card Reader
 
-**Created by Boxin Cao, Katherine Chin, & Shahzeb Khurshid**
-<br/>**Team 1: CS680 Spring 2020**
+### Created by Boxin Cao, Katherine Chin, & Shahzeb Khurshid
+### Team 1: CS680 Spring 2020
 
 ## Overview
 Utilizing smartphones’ NFC readers, **The Virtual Card Reader (TVCR)** collects data from identification cards embedded with NFC tags, and the data is populated into a contacts list. Our goal is to provide a simple, efficient way for professionals to exchange contact information. Examples of embedded identification cards are business cards and student identification cards. An interactive prototype of the app can be found [here](https://bit.ly/2PHaLrw).
