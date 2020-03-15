@@ -8,30 +8,30 @@ Utilizing smartphones’ NFC readers, **The Virtual Card Reader (TVCR)** collect
 
 ## Flow
 
-### Flow Chart
 ![Flow Chart](https://github.com/katherinechin/TVCR/blob/assets/flow.png)
+
+### Flow Chart
 
 The app has two starting points. For Start Point 1, tapping the NFC-enabled device on an NFC identification card will automatically open the application. Populated with the NFC tag’s data, a new contact information page will be saved. Alternatively, for Start Point 2, opening the application on a smartphone will display the home page.
 
+![App Overview](https://github.com/katherinechin/TVCR/blob/assets/overview.png)
+
 ### Home Page
-![Home Page](https://github.com/katherinechin/TVCR/blob/assets/home.png)
 
 The Home activity page lists contacts previously scanned from NFC identification cards. Additionally, the Home page has an Action Bar with widgets. There is a “Recently Opened” widget that directs to the Recently Opened activity page and a “Search” widget for filtering contacts in the list.
 
-### Contact Information Page
-![Contact Information Page](https://github.com/katherinechin/TVCR/blob/assets/contact.png)
+### Contact Page
 
-Selecting a contact from the Home list will direct to the Contact Information activity page that displays “Number,” “Email,” and “LinkedIn”, and “Address” clickable widgets. Each will use an implicit intent to call an activity that performs dial, text, navigate, mail, or browse functions. When the “Number” widget is tapped, a context menu will display options to call, message, or cancel.
+Selecting a contact from the Home list will direct to the Contact activity page that displays “Number,” “Email,” and “LinkedIn”, and “Address” clickable widgets. Each will use an implicit intent to call an activity that performs dial, text, navigate, mail, or browse functions. When the “Number” widget is tapped, a context menu will display options to call, message, or cancel.
 
-### Recently Opened Page
-![Recently Opened Page](https://github.com/katherinechin/TVCR/blob/assets/recents.png)
+### Recents Page
 
-The Recently Opened Activity page will show the most recently opened contact information pages in a list. Both this page and the Contact Information page will have a back button widget that brings the user back to the Home page.
+The Recents Activity page will show the most recently opened contact information pages in a list. Both this page and the Contact page will have a back button widget that brings the user back to the Home page.
 
 ## Activities
-**Home Page** - displays ListView of saved contacts
-<br/>**Recently Opened** - displays ListView of contacts starting with last opened first
-<br/>**Contact Information** - individual contact information displaying
+**Home** - displays ListView of saved contacts
+<br/>**Recents** - displays ListView of contacts starting with last opened first
+<br/>**Contact** - individual contact information displaying
 <br/>**Dialer** - call contact’s number
 <br/>**SMS Messaging** - create new text message with contact’s number in recipient field
 <br/>**Email** - create new email with contact’s email address in recipient field
