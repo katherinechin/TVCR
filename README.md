@@ -13,9 +13,6 @@ Utilizing smartphones’ NFC readers, **The Virtual Card Reader (TVCR)** collect
 
 The app has two starting points. For Start Point 1, tapping the NFC-enabled device on an NFC identification card will automatically open the application. Populated with the NFC tag’s data, a new contact information page will be saved. Alternatively, for Start Point 2, opening the application on a smartphone will display the home page.
 
-### NFC Tag Notification Alert
-![NFC Tag Notification Alert](https://github.com/katherinechin/TVCR/blob/assets/alert.png)
-
 ### Home Page
 ![Home Page](https://github.com/katherinechin/TVCR/blob/assets/home.png)
 
@@ -32,14 +29,14 @@ Selecting a contact from the Home list will direct to the Contact Information ac
 The Recently Opened Activity page will show the most recently opened contact information pages in a list. Both this page and the Contact Information page will have a back button widget that brings the user back to the Home page.
 
 ## Activities
-*Home Page* - displays ListView of saved contacts
-<br/>*Recently Opened* - displays ListView of contacts starting with last opened first
-<br/>*Contact Information* - individual contact information displaying
-<br/>*Dialer* - call contact’s number
-<br/>*SMS Messaging* - create new text message with contact’s number in recipient field
-<br/>*Email* - create new email with contact’s email address in recipient field
-<br/>*Browser* - uses contact’s URL to display LinkedIn profile using a built-in browser
-<br/>*Google Maps* - built-in navigation to contact’s address
+**Home Page** - displays ListView of saved contacts
+<br/>**Recently Opened** - displays ListView of contacts starting with last opened first
+<br/>**Contact Information** - individual contact information displaying
+<br/>**Dialer** - call contact’s number
+<br/>**SMS Messaging** - create new text message with contact’s number in recipient field
+<br/>**Email** - create new email with contact’s email address in recipient field
+<br/>**Browser** - uses contact’s URL to display LinkedIn profile using a built-in browser
+<br/>**Google Maps** - built-in navigation to contact’s address
 
 ## NFC Technology
 Near Field Communication (NFC) is a wireless technology that allows smartphones to share data bidirectionally with other NFC-enabled devices in close proximity of a distance less than 4 cm. Our app will populate and save contact information from an NFC tag. The connection is free and does not rely on Wi-Fi, 3G, or LTE.
