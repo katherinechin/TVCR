@@ -4,7 +4,7 @@
 ### Team 1: CS680 Spring 2020
 
 ## Overview
-Utilizing smartphones’ NFC readers, **The Virtual Card Reader (TVCR)** collects data from identification cards embedded with NFC tags, and the data is populated into a contacts list. Our goal is to provide a simple, efficient way for professionals to exchange contact information. Examples of embedded identification cards are business cards and student identification cards. An interactive prototype of the app can be found [here](https://bit.ly/2PHaLrw).
+Utilizing smartphones’ NFC readers, **The Virtual Card Reader (TVCR)** collects data from identification cards embedded with NFC tags, and the data is populated into a contacts list. Our goal is to provide a simple, efficient way for professionals to exchange contact information. Examples of embedded identification cards are business cards and student identification cards.
 
 ## Flow
 
@@ -51,3 +51,6 @@ Near Field Communication (NFC) is a wireless technology that allows smartphones 
 <br/>[Wireless charging using NFC on Mercedes-Benz S-class](https://www.youtube.com/watch?v=LUVIFB1-vq4)
 <br/>[NFC-Capable Sony music player](https://www.youtube.com/watch?v=bSJTnv8f-Zs)
 <br/>['My Number Cards'](https://appleinsider.com/articles/19/06/11/japanese-iphone-users-will-be-able-to-access-my-number-cards-via-nfc-this-fall)
+
+### Interactive Prototype
+An interactive prototype of the app can be found [here](https://bit.ly/2PHaLrw) on UXPin.
