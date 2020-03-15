@@ -10,7 +10,6 @@ Utilizing smartphones’ NFC readers, **The Virtual Card Reader (TVCR)** collect
 
 ### Flow Chart
 ![Flow Chart](https://github.com/katherinechin/TVCR/blob/assets/flow.png)
-<img src="https://github.com/katherinechin/TVCR/blob/assets/flow.png" width="48" alt="flow" class="center">
 
 The app has two starting points. For Start Point 1, tapping the NFC-enabled device on an NFC identification card will automatically open the application. Populated with the NFC tag’s data, a new contact information page will be saved. Alternatively, for Start Point 2, opening the application on a smartphone will display the home page.
 
