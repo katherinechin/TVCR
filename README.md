@@ -9,12 +9,13 @@ Utilizing smartphones’ NFC readers, **The Virtual Card Reader (TVCR)** collect
 ## Flow
 
 ### Flow Chart
-![Flow Chart](https://github.com/katherinechin/TVCR/blob/assets/flow.png | width=750)
+![Flow Chart](https://github.com/katherinechin/TVCR/blob/assets/flow.png)
+<img src="https://github.com/katherinechin/TVCR/blob/assets/flow.png" width="48">
 
 The app has two starting points. For Start Point 1, tapping the NFC-enabled device on an NFC identification card will automatically open the application. Populated with the NFC tag’s data, a new contact information page will be saved. Alternatively, for Start Point 2, opening the application on a smartphone will display the home page.
 
 ### NFC Tag Notification Alert
-![NFC Tag Notification Alert](https://github.com/katherinechin/TVCR/blob/assets/alert.png | width=1000)
+![NFC Tag Notification Alert](https://github.com/katherinechin/TVCR/blob/assets/alert.png)
 
 ### Home Page
 ![Home Page](https://github.com/katherinechin/TVCR/blob/assets/home.png)
@@ -22,12 +23,12 @@ The app has two starting points. For Start Point 1, tapping the NFC-enabled devi
 The Home activity page lists contacts previously scanned from NFC identification cards. Additionally, the Home page has an Action Bar with widgets. There is a “Recently Opened” widget that directs to the Recently Opened activity page and a “Search” widget for filtering contacts in the list.
 
 ### Contact Information Page
-![Contact Information Page](https://github.com/katherinechin/TVCR/blob/assets/contact.png | width=1000)
+![Contact Information Page](https://github.com/katherinechin/TVCR/blob/assets/contact.png)
 
 Selecting a contact from the Home list will direct to the Contact Information activity page that displays “Number,” “Email,” and “LinkedIn”, and “Address” clickable widgets. Each will use an implicit intent to call an activity that performs dial, text, navigate, mail, or browse functions. When the “Number” widget is tapped, a context menu will display options to call, message, or cancel.
 
 ### Recently Opened Page
-![Recently Opened Page](https://github.com/katherinechin/TVCR/blob/assets/recents.png | width=750)
+![Recently Opened Page](https://github.com/katherinechin/TVCR/blob/assets/recents.png)
 
 The Recently Opened Activity page will show the most recently opened contact information pages in a list. Both this page and the Contact Information page will have a back button widget that brings the user back to the Home page.
 
