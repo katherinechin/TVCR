@@ -16,14 +16,18 @@
 
 package com.example.tvcr;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextClock;
 import android.widget.ListView;
 import android.view.Menu;
@@ -47,7 +51,6 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
     ArrayAdapter<String> adapter; // defining a string adapter that handles ListView data
     ArrayList<String> listItems = new ArrayList<>(); // list of array strings as list items
     private OutputStreamWriter out;
-    private int storePosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +101,7 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
             out = new OutputStreamWriter(openFileOutput(file, MODE_PRIVATE));
 
             // write each task item to the file
+            // the following is a demo of contact names
             out.write("Abby Bates" + "\n");
             out.write("Carol Porter" + "\n");
             out.write("Darren Hult" + "\n");
@@ -110,6 +114,7 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
             out.write("Sarah Abbott" + "\n");
             out.write("Tim Adams" + "\n");
 
+            // will need to change implementation when we import contact info
 //            for (int i = 0; i < 1; i++) {
 //                out.write("Abby" + "\n");
 //                listItems.add("Abby"); // combine list item number with input
@@ -124,7 +129,6 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
     }
 
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-        storePosition = position; // variable to store position number so it can still be accessed outside the class
     }
 
     @Override
@@ -137,12 +141,12 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-//            case R.id.save: // save list items to file
+            // will need to add implementation when we import contact info
+//            case R.id.add: // save list items to file
 //
 //                //write();
 //
 //                return true;
-
 
             default:
                 return super.onOptionsItemSelected(item);

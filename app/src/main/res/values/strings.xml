@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TVCR</string>
     <string name="app_full_name">The Virtual Card Reader</string>
+    <string name="search">Search</string>
 </resources>
