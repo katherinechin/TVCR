@@ -4,4 +4,6 @@
     <color name="colorPrimary">#da5e5a</color> // Salmon
     <color name="colorAccent1">#e2814d</color> // Orange
     <color name="colorAccent2">#fdb903</color> // Yellow
+    <color name="listBackground">#ffffff</color> // White
+    <color name="listFont">#595959</color> // Gray
 </resources>
