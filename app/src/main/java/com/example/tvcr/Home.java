@@ -52,6 +52,11 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
     ArrayList<String> listItems = new ArrayList<>(); // list of array strings as list items
     private OutputStreamWriter out;
 
+    private TextToSpeech speaker;
+    private static final String tag = "Speech";
+
+    private int thisPosition;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,6 +98,33 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
         }
     }
 
+    // speak methods will send text to be spoken
+    public void speak(String output){
+        speaker.speak(output, TextToSpeech.QUEUE_FLUSH, null, "Id 0");
+    }
+
+    // Implements TextToSpeech.OnInitListener.
+    public void onInit(int status) {
+        // status can be either TextToSpeech.SUCCESS or TextToSpeech.ERROR.
+        if (status == TextToSpeech.SUCCESS) {
+            // Set preferred language to US english.
+            // If a language is not be available, the result will indicate it.
+            int result = speaker.setLanguage(Locale.US);
+
+            if (result == TextToSpeech.LANG_MISSING_DATA ||
+                    result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                // Language data is missing or the language is not supported.
+                Log.e(tag, "Language is not available.");
+            } else {
+                // The TTS engine has been successfully initialized
+                Log.i(tag, "TTS Initialization successful.");
+            }
+        } else {
+            // Initialization failed.
+            Log.e(tag, "Could not initialize TextToSpeech.");
+        }
+    }
+
     // writes to file
     public void write() {
 
@@ -128,7 +160,19 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
 
     }
 
+    // on destroy for speaker
+    public void onDestroy(){
+
+        // shut down TTS engine
+        if(speaker != null){
+            speaker.stop();
+            speaker.shutdown();
+        }
+        super.onDestroy();
+    }
+
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+        thisPosition = position; // TODO variable to store position number so it can still be accessed outside the class
     }
 
     @Override
@@ -149,6 +193,24 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
 //                return true;
 
             default:
+                // TODO remove?
+                try { // speaker when adding
+                    Log.i(tag, "Add - TTS invoked.");
+
+                    // if speaker is talking, stop it
+                    if(speaker.isSpeaking()){
+                        Log.i(tag, "Speaker Speaking");
+                        speaker.stop();
+                        // else start speech
+                    } else {
+                        Log.i(tag, "Speaker Not Already Speaking");
+                        speak(thisPosition + " was added.");
+                    }
+
+                } catch (Exception e) {
+                    Log.e(tag, "Speaker failure" + e.getMessage());
+                }
+
                 return super.onOptionsItemSelected(item);
         }
     }
