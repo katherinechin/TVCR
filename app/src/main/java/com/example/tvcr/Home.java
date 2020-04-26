@@ -76,7 +76,7 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
 
         if (file.equals("names.txt")) { //initialize names.txt contents if it exists
 
-        write();
+        write(); // writes to file
 
             try {
                 //open stream for reading from file
@@ -138,8 +138,8 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
             //open output stream
             out = new OutputStreamWriter(openFileOutput(file, MODE_PRIVATE));
 
-            // write each task item to the file
-            // the following is a demo of contact names
+            // write each contact name to the file
+            // TODO the following is a demo of contact names - remove later to use real contact info
             out.write("Abby Bates" + "\n");
             out.write("Carol Porter" + "\n");
             out.write("Darren Hult" + "\n");
@@ -177,6 +177,7 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
         super.onDestroy();
     }
 
+    // when list item is clicked
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
         thisPosition = position; // variable to store position number so it can still be accessed outside the class
         try { // speaker when adding
@@ -197,16 +198,19 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
         }
     }
 
+    // initialize options menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
+    // add contact or search for contact when clicked in the menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
+            // TODO create add and search functions
             // will need to add implementation when we import contact info
 //            case R.id.add: // save list items to file
 //
