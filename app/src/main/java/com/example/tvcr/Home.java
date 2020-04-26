@@ -18,8 +18,12 @@ package com.example.tvcr;
 
 // TODO remove unused imports
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -67,6 +71,8 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
 
         adapter = new ArrayAdapter<>(this, R.layout.list_row, R.id.textView, listItems); // use custom layout for ListView items
         list.setAdapter(adapter);    //connect ArrayAdapter to <ListView>
+
+
 
         //Initialize Text to Speech engine
         speaker = new TextToSpeech(this, this);
@@ -193,6 +199,7 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
         } catch (Exception e) {
             Log.e(tag, "Speaker failure" + e.getMessage());
         }
+
     }
 
     // initialize options menu
