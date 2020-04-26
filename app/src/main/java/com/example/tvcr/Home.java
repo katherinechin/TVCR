@@ -18,12 +18,12 @@ package com.example.tvcr;
 
 // TODO remove unused imports
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
+//import androidx.appcompat.app.ActionBar;
+
+//import androidx.appcompat.widget.SearchView;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
