@@ -18,13 +18,9 @@ package com.example.tvcr;
 
 // TODO remove unused imports
 
-//import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
-//import androidx.appcompat.widget.SearchView;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -43,9 +39,6 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.Locale;
 
 public class Home extends AppCompatActivity implements AdapterView.OnItemClickListener, OnInitListener {
@@ -75,18 +68,6 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
         adapter = new ArrayAdapter<>(this, R.layout.list_row, R.id.textView, listItems); // use custom layout for ListView items
         list.setAdapter(adapter);    //connect ArrayAdapter to <ListView>
 
-
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position != -1){
-                    Intent intent = new Intent(Home.this,Contact.class);
-                    startActivity(intent);
-                }
-
-            }
-        });
         //Initialize Text to Speech engine
         speaker = new TextToSpeech(this, this);
 
