@@ -22,6 +22,7 @@ package com.example.tvcr;
 
 //import androidx.appcompat.widget.SearchView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
@@ -71,6 +72,18 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
         adapter = new ArrayAdapter<>(this, R.layout.list_row, R.id.textView, listItems); // use custom layout for ListView items
         list.setAdapter(adapter);    //connect ArrayAdapter to <ListView>
 
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position != -1){
+                    Intent intent = new Intent(Home.this,Contact.class);
+                    startActivity(intent);
+                }
+
+            }
+        });
         //Initialize Text to Speech engine
         speaker = new TextToSpeech(this, this);
 
