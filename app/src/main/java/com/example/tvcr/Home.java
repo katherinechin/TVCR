@@ -16,6 +16,8 @@
 
 package com.example.tvcr;
 
+// TODO remove unused imports
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,18 +46,20 @@ import java.util.Locale;
 
 public class Home extends AppCompatActivity implements AdapterView.OnItemClickListener, OnInitListener {
 
-    private String file = "names.txt";
-    private ListView list;
+    private String file = "names.txt"; // file that contains the names of each contact
+    private ListView list; // list of all contact names
+    // TODO list the names in alphabetical order
 
     ArrayAdapter<String> adapter; // defining a string adapter that handles ListView data
     ArrayList<String> listItems = new ArrayList<>(); // list of array strings as list items
-    private OutputStreamWriter out;
+    private OutputStreamWriter out; // writes stream of data
 
-    private TextToSpeech speaker;
-    private static final String tag = "Speech";
+    private TextToSpeech speaker; // speaker for Text to Speech
+    private static final String tag = "Speech"; // tag for debugging Text to Speech
 
-    private int thisPosition;
+    private int thisPosition; // global variable to hold the position of the clicked list item
 
+    // creation method upon initiation of the app
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -174,7 +178,7 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
     }
 
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-        thisPosition = position; // TODO variable to store position number so it can still be accessed outside the class
+        thisPosition = position; // variable to store position number so it can still be accessed outside the class
         try { // speaker when adding
             Log.i(tag, "Add - TTS invoked.");
 
