@@ -43,6 +43,9 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.Locale;
 
 public class Home extends AppCompatActivity implements AdapterView.OnItemClickListener, OnInitListener {

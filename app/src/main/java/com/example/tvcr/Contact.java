@@ -32,7 +32,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-public class Contact extends AppCompatActivity{
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Contact extends AppCompatActivity {
     Uri info;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
