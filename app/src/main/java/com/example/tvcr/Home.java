@@ -28,7 +28,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextClock;
 import android.widget.ListView;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -43,7 +42,7 @@ import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 import java.util.Locale;
 
-public class Home extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class Home extends AppCompatActivity implements AdapterView.OnItemClickListener, OnInitListener {
 
     private String file = "names.txt";
     private ListView list;
@@ -67,6 +66,9 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
 
         adapter = new ArrayAdapter<>(this, R.layout.list_row, R.id.textView, listItems); // use custom layout for ListView items
         list.setAdapter(adapter);    //connect ArrayAdapter to <ListView>
+
+        //Initialize Text to Speech engine
+        speaker = new TextToSpeech(this, this);
 
         if (file.equals("names.txt")) { //initialize names.txt contents if it exists
 
@@ -173,6 +175,22 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
 
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
         thisPosition = position; // TODO variable to store position number so it can still be accessed outside the class
+        try { // speaker when adding
+            Log.i(tag, "Add - TTS invoked.");
+
+            // if speaker is talking, stop it
+            if(speaker.isSpeaking()){
+                Log.i(tag, "Speaker Speaking");
+                speaker.stop();
+                // else start speech
+            } else {
+                Log.i(tag, "Speaker Not Already Speaking");
+                speak(listItems.get(thisPosition));
+            }
+
+        } catch (Exception e) {
+            Log.e(tag, "Speaker failure" + e.getMessage());
+        }
     }
 
     @Override
@@ -193,24 +211,6 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
 //                return true;
 
             default:
-                // TODO remove?
-                try { // speaker when adding
-                    Log.i(tag, "Add - TTS invoked.");
-
-                    // if speaker is talking, stop it
-                    if(speaker.isSpeaking()){
-                        Log.i(tag, "Speaker Speaking");
-                        speaker.stop();
-                        // else start speech
-                    } else {
-                        Log.i(tag, "Speaker Not Already Speaking");
-                        speak(thisPosition + " was added.");
-                    }
-
-                } catch (Exception e) {
-                    Log.e(tag, "Speaker failure" + e.getMessage());
-                }
-
                 return super.onOptionsItemSelected(item);
         }
     }
