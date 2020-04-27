@@ -4,12 +4,6 @@
     android:layout_height="match_parent">
 
 
-    <TextView
-        android:id="@+id/empty"
-        android:layout_width="match_parent"
-        android:layout_height="5dp" />
-
-
 
     <TextView
         android:id="@+id/TextTest"
@@ -22,8 +16,9 @@
         android:textSize="16sp" />
 
 
+
     <TextView
-        android:id="@+id/Text9"
+        android:id="@+id/textName"
         android:layout_width="fill_parent"
         android:layout_height="25dp"
         android:text="Name:" />
@@ -35,31 +30,31 @@
         android:backgroundTint="#FFFFFF" />
 
     <TextView
-        android:id="@+id/Text10"
+        android:id="@+id/textNumber"
         android:layout_width="fill_parent"
         android:layout_height="25dp"
         android:text="Number:" />
 
     <EditText
-        android:id="@+id/editNum"
+        android:id="@+id/editNumber"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:backgroundTint="#FFFFFF" />
 
     <TextView
-        android:id="@+id/Text12"
+        android:id="@+id/textUrl"
         android:layout_width="fill_parent"
         android:layout_height="25dp"
         android:text="LinkedIn:" />
 
     <EditText
-        android:id="@+id/editLI"
+        android:id="@+id/editUrl"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:backgroundTint="#FFFFFF" />
 
     <TextView
-        android:id="@+id/Text13"
+        android:id="@+id/textAddress"
         android:layout_width="fill_parent"
         android:layout_height="25dp"
         android:text="Address:" />
@@ -71,11 +66,11 @@
         android:backgroundTint="#FFFFFF" />
 
     <Button
-        android:id="@+id/submit"
+        android:id="@+id/addSave"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:backgroundTint="#FFFFFF"
-        android:text="submit" />
+        android:text="save" />
 
 
 </LinearLayout>

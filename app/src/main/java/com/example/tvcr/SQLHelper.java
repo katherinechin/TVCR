@@ -1,5 +1,6 @@
 package com.example.tvcr;
 
+// TODO change this description
 //This class is not an Activity. It is a helper class
 // used to execute the SQL statements on SQLite.
 
@@ -58,8 +59,8 @@ public class SQLHelper extends SQLiteOpenHelper {
         onCreate(db);   //not calling a lifecycle method
     }
 
-    //add animal to database
-    public void addAnimal(ContactInfo item) {
+    //add contact to database
+    public void addContact(ContactInfo item) {
         SQLiteDatabase db = this.getWritableDatabase();
         values = new ContentValues();
         values.put(KEY_NAME, item.getName());
@@ -72,9 +73,9 @@ public class SQLHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    // TODO do more than update names?
-    //update Animal name in database
-    public void updateAnimal(ContactInfo item, ContactInfo newItem){
+    // TODO maybe implement this?
+    //update contact name in database
+    public void updateContact(ContactInfo item, ContactInfo newItem){
         SQLiteDatabase db = this.getWritableDatabase();
         values = new ContentValues();
         values.put(KEY_NAME, newItem.getName());
@@ -83,8 +84,9 @@ public class SQLHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    //delete animal from database
-    public void deleteAnimal(ContactInfo item){
+    // TODO maybe implement this?
+    //delete contact from database
+    public void deleteContact(ContactInfo item){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_NAME, KEY_NAME + "=?", new String[] {item.getName()});
         Log.d("SQLiteDemo", item.getName() + " deleted");

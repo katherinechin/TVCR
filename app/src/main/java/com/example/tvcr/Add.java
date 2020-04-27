@@ -20,8 +20,6 @@ public class Add extends Activity implements View.OnClickListener {
 
     private TextView text;
     private SQLiteDatabase db;
-    private ContentValues values;
-    private Cursor cursor;
     private SQLHelper helper;
 
     private EditText nameField;
@@ -36,12 +34,13 @@ public class Add extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add);
 
+        // TODO eventually remove TextTest in add.xml when done testing
         text = (TextView) findViewById(R.id.TextTest);
 
         nameField = (EditText) findViewById(R.id.editName);
-        numberField = (EditText) findViewById(R.id.editNum);
+        numberField = (EditText) findViewById(R.id.editNumber);
 //        emailField = (EditText) findViewById(R.id.editEmail);
-        urlField = (EditText) findViewById(R.id.editLI);
+        urlField = (EditText) findViewById(R.id.editUrl);
         addressField = (EditText) findViewById(R.id.editAddress);
 
         //let textview widget scroll
@@ -56,33 +55,15 @@ public class Add extends Activity implements View.OnClickListener {
             Log.d("SQLiteDemo", "Create database failed");
         }
 
-
-        submitButton = (Button)findViewById(R.id.submit);
+        submitButton = (Button)findViewById(R.id.addSave);
         submitButton.setOnClickListener(this);
-
-        //insert records
-//        helper.addAnimal(new ContactInfo("tiger", "8888888888", "kchin96@gmail.com", "https://google.com", "1 Main St."));
-//        helper.addAnimal(new ContactInfo("tiger", number, url, address));
-//        helper.addAnimal(new ContactInfo("zebra", 23));
-//        helper.addAnimal(new ContactInfo("buffalo", 13));
-//        helper.addAnimal(new ContactInfo("lion", 37));
-//        helper.addAnimal(new ContactInfo("yak", 18));
 
 
 //        //update buffalo to gorilla
-//        helper.updateAnimal(new ContactInfo("buffalo"), new ContactInfo("gorilla"));
+//        helper.updateContact(new ContactInfo("Abigail"), new ContactInfo("John"));
 //
 //        //delete record
-//        helper.deleteAnimal(new ContactInfo("tiger"));
-
-        //query database
-//        ArrayList<ContactInfo> animalList = helper.getContactList();
-//
-//        //write contents of list to screen
-//        for (ContactInfo item : animalList) {
-//            text.append(item.getName() + " " + item.getNumber() + " " + item.getUrl() + " " + item.getAddress() + "\n" );
-//            text.append(item.getName() + " " + item.getNumber() + " " + item.getEmail() + " " + item.getUrl() + " " + item.getAddress() + "\n" );
-//        }
+//        helper.deleteContact(new ContactInfo("Abigail"));
 
     }
 
@@ -92,18 +73,27 @@ public class Add extends Activity implements View.OnClickListener {
         switch(v.getId()) {
 
             // activates web functionality upon WEB button click
-            case R.id.submit:
-                helper.addAnimal(new ContactInfo(nameField.getText().toString(), numberField.getText().toString(), urlField.getText().toString(), addressField.getText().toString()));
-//                helper.addAnimal(new ContactInfo(nameField.getText().toString(), numberField.getText().toString(), emailField.getText().toString(), urlField.getText().toString(), addressField.getText().toString()));
-                ArrayList<ContactInfo> animalList = helper.getContactList();
+            case R.id.addSave:
 
-                for (ContactInfo item : animalList) {
-                    text.append(item.getName() + " " + item.getNumber() + " " + item.getUrl() + " " + item.getAddress() + "\n" );
-//            text.append(item.getName() + " " + item.getNumber() + " " + item.getEmail() + " " + item.getUrl() + " " + item.getAddress() + "\n" );
+                // insert record
+                helper.addContact(new ContactInfo(nameField.getText().toString(), numberField.getText().toString(),
+                        //emailField.getText().toString(),
+                        urlField.getText().toString(), addressField.getText().toString()));
+
+                //query database
+                ArrayList<ContactInfo> contactList = helper.getContactList();
+
+                for (ContactInfo item : contactList) {
+                    text.append(item.getName() + " " + item.getNumber() + " "
+                            // + item.getEmail() + " "
+                            + item.getUrl() + " " + item.getAddress() + "\n" );
                 }
 
+                nameField.getText().clear();
+                numberField.getText().clear();
+                urlField.getText().clear();
+                addressField.getText().clear();
                 break;
-
         }
     }
 

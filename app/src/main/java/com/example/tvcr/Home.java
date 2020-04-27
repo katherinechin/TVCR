@@ -60,6 +60,8 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
 
     private int thisPosition; // global variable to hold the position of the clicked list item
 
+    private SQLHelper helper;
+
     // creation method upon initiation of the app
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +74,7 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
         adapter = new ArrayAdapter<>(this, R.layout.list_row, R.id.textView, listItems); // use custom layout for ListView items
         list.setAdapter(adapter);    //connect ArrayAdapter to <ListView>
 
-
+        helper = new SQLHelper(this);
 
         //Initialize Text to Speech engine
         speaker = new TextToSpeech(this, this);
@@ -141,25 +143,28 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
             //open output stream
             out = new OutputStreamWriter(openFileOutput(file, MODE_PRIVATE));
 
-            // write each contact name to the file
-            // TODO the following is a demo of contact names - remove later to use real contact info
-            out.write("Abby Bates" + "\n");
-            out.write("Carol Porter" + "\n");
-            out.write("Darren Hult" + "\n");
-            out.write("Fred Wu" + "\n");
-            out.write("John Smith" + "\n");
-            out.write("Karen Lutz" + "\n");
-            out.write("Laura Tate" + "\n");
-            out.write("Mandy Gold" + "\n");
-            out.write("Paula Wright" + "\n");
-            out.write("Sarah Abbott" + "\n");
-            out.write("Tim Adams" + "\n");
+            // demo of contact names - remove later to use real contact info
+//            out.write("Abby Bates" + "\n");
+//            out.write("Carol Porter" + "\n");
+//            out.write("Darren Hult" + "\n");
+//            out.write("Fred Wu" + "\n");
+//            out.write("John Smith" + "\n");
+//            out.write("Karen Lutz" + "\n");
+//            out.write("Laura Tate" + "\n");
+//            out.write("Mandy Gold" + "\n");
+//            out.write("Paula Wright" + "\n");
+//            out.write("Sarah Abbott" + "\n");
+//            out.write("Tim Adams" + "\n");
 
-            // will need to change implementation when we import contact info
-//            for (int i = 0; i < 1; i++) {
-//                out.write("Abby" + "\n");
-//                listItems.add("Abby"); // combine list item number with input
-//            }
+            //query database
+            ArrayList<ContactInfo> contactList = helper.getContactList();
+
+            // write each contact name as a list item
+            for (ContactInfo item : contactList) {
+                String name = item.getName();
+                out.write(name + "\n");
+            }
+
 
             out.close();
 
@@ -214,14 +219,7 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            // TODO create add and search functions
-            // will need to add implementation when we import contact info
-//            case R.id.add: // save list items to file
-//
-//                //write();
-//
-//                return true;
-
+            // TODO create search function (Boxin)
             // activates add contact information functionality upon ADD menu button click
             case R.id.add:
                 Intent i1 = new Intent(this, Add.class);

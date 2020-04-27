@@ -1,5 +1,7 @@
 package com.example.tvcr;
 
+// TODO add comments and description
+
 public class ContactInfo {
 
     private int id;
