@@ -222,6 +222,12 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
 //
 //                return true;
 
+            // activates add contact information functionality upon ADD menu button click
+            case R.id.add:
+                Intent i1 = new Intent(this, Add.class);
+                startActivity(i1);
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }

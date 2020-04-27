@@ -21,6 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Contact" android:label="Contact" />
+        <activity android:name=".Add" android:label="Add" />
     </application>
 
 </manifest>
