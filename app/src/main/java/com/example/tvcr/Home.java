@@ -122,26 +122,27 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
             adapter.notifyDataSetChanged();
 
         }
-//
+
 //        mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
 //
+//        //TODO Change channel name and description
 //        //As of API 26 Notification Channels must be assigned to a channel
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 //            NotificationChannel channel = new NotificationChannel("default",
 //                    "Channel foobar",
-//                    NotificationManager.IMPORTANCE_HIGH);
+//                    NotificationManager.IMPORTANCE_DEFAULT);
 //            channel.setDescription("Channel description");
 //            channel.setLightColor(Color.GREEN);
 //            mNotificationManager.createNotificationChannel(channel);
 //        }
 //
+//        // TODO fix comments
 //        //create implicit intent for action when notification selected
-//        //from expanded notification screen
-//        //open email when notification clicked
+//        // and from expanded notification screen
 //        Intent notifyIntent = new Intent(this, Home.class);
 //
 //        //the pending intent will outlive this app
-//        PendingIntent pendingIntent = PendingIntent.getActivity(this, 9, notifyIntent,0 );
+//        PendingIntent pendingIntent = PendingIntent.getActivity(this, 9, notifyIntent, 0 );
 //
 //        //set icon, text, and time on notification status bar
 //        notifyDetails = new NotificationCompat.Builder(this, "default")
