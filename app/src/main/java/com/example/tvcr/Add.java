@@ -3,8 +3,14 @@ package com.example.tvcr;
 //This Activity uses a helper class to execute the actual SQL code.
 import java.util.ArrayList;
 import android.app.Activity;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.database.*;
 import android.database.sqlite.*;
@@ -16,7 +22,11 @@ import android.widget.TextView;
 import android.content.ContentValues;
 import android.text.method.ScrollingMovementMethod;
 
+import androidx.core.app.NotificationCompat;
+
 public class Add extends Activity implements View.OnClickListener {
+
+    // TODO comment variables, methods and blocks
 
     private TextView text;
     private SQLiteDatabase db;
@@ -27,7 +37,14 @@ public class Add extends Activity implements View.OnClickListener {
 //    private EditText emailField;
     private EditText urlField;
     private EditText addressField;
-    private Button submitButton;
+    private Button saveButton;
+
+//
+//    private NotificationManager mNotificationManager;
+//    private NotificationCompat.Builder notifyDetails = null;
+//    private int SIMPLE_NOTFICATION_ID = 1;
+//    private String contentTitle = "Email Notification";
+//    private String contentText = "Get to Email by clicking me";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,8 +72,50 @@ public class Add extends Activity implements View.OnClickListener {
             Log.d("SQLiteDemo", "Create database failed");
         }
 
-        submitButton = (Button)findViewById(R.id.addSave);
-        submitButton.setOnClickListener(this);
+        saveButton = (Button)findViewById(R.id.addSave);
+        saveButton.setOnClickListener(this);
+
+//        mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+//
+//        //As of API 26 Notification Channels must be assigned to a channel
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            NotificationChannel channel = new NotificationChannel("default",
+//                    "Channel foobar",
+//                    NotificationManager.IMPORTANCE_HIGH);
+//            channel.setDescription("Channel description");
+//            channel.setLightColor(Color.GREEN);
+//            mNotificationManager.createNotificationChannel(channel);
+//        }
+//
+//        //create implicit intent for action when notification selected
+//        //from expanded notification screen
+//        //open email when notification clicked
+//        Intent notifyIntent = new Intent(this, Home.class);
+//
+//        //the pending intent will outlive this app
+//        PendingIntent pendingIntent = PendingIntent.getActivity(this, 9, notifyIntent,0 );
+//
+//        //set icon, text, and time on notification status bar
+//        notifyDetails = new NotificationCompat.Builder(this, "default")
+//                .setContentIntent(pendingIntent)
+//                .setContentTitle(contentTitle)
+//                .setContentText(contentText)
+//                .setAutoCancel(true)     //cancel Notification after clicking on it
+//                //set Android to vibrate when notified
+//                .setVibrate(new long[] {1000, 1000, 2000, 2000});
+//
+//        list.setOnClickListener(new View.OnClickListener() {
+//
+//            public void onClick(View v) {
+//
+//                //notify() in response to button click.
+//                mNotificationManager.notify(SIMPLE_NOTFICATION_ID,
+//                        notifyDetails.build());
+//
+//            }
+//        });
+//
+
 
 
 //        //update buffalo to gorilla

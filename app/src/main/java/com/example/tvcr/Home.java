@@ -22,13 +22,22 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.core.app.NotificationCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -61,6 +70,12 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
     private int thisPosition; // global variable to hold the position of the clicked list item
 
     private SQLHelper helper;
+
+//    private NotificationManager mNotificationManager;
+//    private NotificationCompat.Builder notifyDetails = null;
+//    private int SIMPLE_NOTFICATION_ID = 1;
+//    private String contentTitle = "Email Notification";
+//    private String contentText = "Get to Email by clicking me";
 
     // creation method upon initiation of the app
     @Override
@@ -107,6 +122,47 @@ public class Home extends AppCompatActivity implements AdapterView.OnItemClickLi
             adapter.notifyDataSetChanged();
 
         }
+//
+//        mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+//
+//        //As of API 26 Notification Channels must be assigned to a channel
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            NotificationChannel channel = new NotificationChannel("default",
+//                    "Channel foobar",
+//                    NotificationManager.IMPORTANCE_HIGH);
+//            channel.setDescription("Channel description");
+//            channel.setLightColor(Color.GREEN);
+//            mNotificationManager.createNotificationChannel(channel);
+//        }
+//
+//        //create implicit intent for action when notification selected
+//        //from expanded notification screen
+//        //open email when notification clicked
+//        Intent notifyIntent = new Intent(this, Home.class);
+//
+//        //the pending intent will outlive this app
+//        PendingIntent pendingIntent = PendingIntent.getActivity(this, 9, notifyIntent,0 );
+//
+//        //set icon, text, and time on notification status bar
+//        notifyDetails = new NotificationCompat.Builder(this, "default")
+//                .setContentIntent(pendingIntent)
+//                .setContentTitle(contentTitle)
+//                .setContentText(contentText)
+//                .setAutoCancel(true)     //cancel Notification after clicking on it
+//                //set Android to vibrate when notified
+//                .setVibrate(new long[] {1000, 1000, 2000, 2000});
+//
+//        list.setOnClickListener(new View.OnClickListener() {
+//
+//            public void onClick(View v) {
+//
+//                //notify() in response to button click.
+//                mNotificationManager.notify(SIMPLE_NOTFICATION_ID,
+//                        notifyDetails.build());
+//
+//            }
+//        });
+
     }
 
     // speak methods will send text to be spoken
